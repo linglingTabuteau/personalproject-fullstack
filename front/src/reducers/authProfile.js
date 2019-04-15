@@ -12,7 +12,7 @@ const authProfile = (state = initialState, action) => {
       console.log('actionuser-signinProfile:', action.user);
       document.cookie = `token=${action.token}`;
       return {
-        // duplique les propriétés de action.user pour le pas modifier
+        // ci-dessous duplique les propriétés de action.user pour le pas modifier
         user: { ...action.user },
         token: action.token,
       };

@@ -66,6 +66,7 @@ class SignUp extends Component {
               value={email}
               onChange={this.handleUpdatelField}
               placeholder="enter your email"
+              required
             />
           </FormGroup>
           <FormGroup>
@@ -77,6 +78,7 @@ class SignUp extends Component {
               value={password}
               onChange={this.handleUpdatelField}
               placeholder="enter your password"
+              required
             />
           </FormGroup>
           <FormGroup>
@@ -88,6 +90,7 @@ class SignUp extends Component {
               value={passwordconfirm}
               onChange={this.handleUpdatelField}
               placeholder="confirm your password"
+              required
             />
           </FormGroup>
           <FormGroup>
@@ -99,6 +102,7 @@ class SignUp extends Component {
               value={name}
               onChange={this.handleUpdatelField}
               placeholder="Enter your name"
+              required
             />
           </FormGroup>
           <FormGroup>
@@ -110,6 +114,7 @@ class SignUp extends Component {
               value={lastname}
               onChange={this.handleUpdatelField}
               placeholder="Enter your lastname"
+              required
             />
           </FormGroup>
           <Button>Sign Up</Button>

@@ -1,3 +1,5 @@
+// HOC - Higher Order Component. Un HOC est une fonction qui prend un composant en argument et 
+// et le retourne (passe plat) si les conditions sont remplies sinon elle redirige l'utilisateur vers une autre route.
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 

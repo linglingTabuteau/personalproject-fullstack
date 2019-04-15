@@ -22,7 +22,7 @@ const App = () => (
   <div className="App">
     <NavBar />
     {/* we give a fixed size to menu in order to keep Footer at the bottom of page */}
-    <div className='menu'>
+    <div className="menu">
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/searchbar" component={SearchBar} />

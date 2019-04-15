@@ -5,6 +5,7 @@ const logger = require('morgan');
 const path = require('path');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
+// module 'bodyParser' permet de récupérer des données envoyées depuis le client en JSON
 const bodyParser = require('body-parser');
 
 const indexRouter = require('./routes/index');
@@ -12,9 +13,10 @@ const indexRouter = require('./routes/index');
 const app = express();
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const connection = require('./routes/conf');
 const JWTStrategy = require('passport-jwt').Strategy;
 const ExtractJWT = require('passport-jwt').ExtractJwt;
+const connection = require('./routes/conf');
+
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

@@ -24,7 +24,7 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false
+      isOpen: false,
     };
     this.toggle = this.toggle.bind(this);
     this.doLogout = this.doLogout.bind(this);
@@ -32,8 +32,9 @@ class NavBar extends React.Component {
 
   componentDidMount() {
     // nouveautée ES6 Map [[key, value], [key, value]] pour récupérer les cookies
-    const cookies = new Map(document.cookie.split('; ').map((e) => e.split('=')));
+    const cookies = new Map(document.cookie.split('; ').map(e => e.split('=')));
     const token = cookies.get('token');
+    const { autoLoginAuth } = this.props;
     if (token) {
       fetch('http://localhost:5000/api/profile',
         {
@@ -48,7 +49,7 @@ class NavBar extends React.Component {
           return new Error(res.statusText);
         })
         .then((user) => {
-          this.props.autoLoginAuth(user, token);
+          autoLoginAuth(user, token);
         })
         .catch();
     }
@@ -61,20 +62,22 @@ class NavBar extends React.Component {
   }
 
   toggle() {
+    const { isOpen } = this.state;
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !isOpen,
     });
   }
 
   render() {
     const { user } = this.props;
+    const { isOpen } = this.state;
     return (
       <div className="NavBar">
         {/* attention: faut enlever light dans Navbar pour changer la color de NavItem */}
         <Navbar color="light" light expand="md" className="nav">
           <NavbarBrand href="/" style={{ color: 'rgb(126, 211, 69)' }}>MEMORY GHIBLI</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
+          <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <Link to="/affichefilm"><NavLink to="/affichefilm" style={{ color: 'rgb(126, 211, 69)' }}>List All films</NavLink></Link>
@@ -100,7 +103,7 @@ class NavBar extends React.Component {
                               <DropdownItem className="drop" tag={Link} to="/admin">Administrateur</DropdownItem>
                             )
                             : (
-                              <DropdownItem></DropdownItem>
+                              <DropdownItem />
                             )
                         }
                       </DropdownMenu>

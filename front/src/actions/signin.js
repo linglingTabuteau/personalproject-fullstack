@@ -7,7 +7,7 @@ export const signinAuth = (user, token) => ({
 export const autoLoginAuth = (user, token) => ({
   type: 'AUTOLOGIN',
   user,
-  token
+  token,
 });
 
 export const logout = () => {

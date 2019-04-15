@@ -19,7 +19,6 @@ class MyProfile extends Component {
   }
 
   componentDidMount() {
-    const { profile } = this.state;
     const { token } = this.props;
     fetch('http://localhost:5000/api/profile',
       {
@@ -41,9 +40,10 @@ class MyProfile extends Component {
 
   render() {
     const { user } = this.props;
+    const { profile } = this.state;
     return (
       <Container className="MyProfile">
-        <h2>{`Welcome ${user.name} ${user.lastname} to MEMORY GHIBLI`}</h2>
+        <h2>{`Welcome ${profile.name} ${profile.lastname} to MEMORY GHIBLI`}</h2>
         <p>Sharing special memories & experiences with you</p>
         <Card className="CardFilm">
           <Col className="photo-size">
