@@ -10,7 +10,7 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -32,6 +32,7 @@ class NavBar extends React.Component {
 
   componentDidMount() {
     // nouveautée ES6 Map [[key, value], [key, value]] pour récupérer les cookies
+    // split('; ') pour séparer deux cookie car les cookies sont séparé par '; '
     const cookies = new Map(document.cookie.split('; ').map(e => e.split('=')));
     const token = cookies.get('token');
     const { autoLoginAuth } = this.props;
@@ -80,7 +81,8 @@ class NavBar extends React.Component {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <Link to="/affichefilm"><NavLink to="/affichefilm" style={{ color: 'rgb(126, 211, 69)' }}>List All films</NavLink></Link>
+                {/* <Link to="/affichefilm"><NavLink to="/affichefilm" style={{ color: 'rgb(126, 211, 69)' }}>List All films</NavLink></Link> */}
+                <NavLink tag={Link} to="/affichefilm" style={{ color: 'rgb(126, 211, 69)' }}>List All films</NavLink>
               </NavItem>
               {
                 user.email === ''
@@ -120,7 +122,6 @@ class NavBar extends React.Component {
 
 const mdtp = dispatch => bindActionCreators({ signinAuth, autoLoginAuth, logout }, dispatch);
 function mstp(state) {
-  console.log('reducers-state:', state);
   return {
     token: state.auth.token,
     user: state.auth.user,

@@ -45,7 +45,7 @@ class SignIn extends Component {
     fetch('http://localhost:5000/api/signin', config)
       .then((res) => {
         if (res.status === 400) {
-         console.log('res.statusText', res.statusText);
+          console.log('res.statusText', res.statusText);
         } if (res.status === 200) {
           return res.json();
         }
@@ -88,7 +88,7 @@ class SignIn extends Component {
           </FormGroup>
           <Button>Sign In</Button>
         </Form>
-        <Link to="/signup"><Button className="button">CREAT AN ACCOUNT</Button></Link>
+        <Link to="/signup"><Button className="button">CREATE AN ACCOUNT</Button></Link>
       </Container>
     );
   }
@@ -96,7 +96,6 @@ class SignIn extends Component {
 
 const mdtp = dispatch => bindActionCreators({ signinAuth }, dispatch);
 function mstp(state) {
-  console.log('reducers-state:', state);
   return {
     token: state.auth.token,
     user: state.auth.user,

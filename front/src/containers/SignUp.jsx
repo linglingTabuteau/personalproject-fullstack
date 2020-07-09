@@ -44,9 +44,9 @@ class SignUp extends Component {
         // JSON.stringify(form json);
         body: JSON.stringify(this.state),
       },
-    )
-      // dans la partie back(API): il retourne json et puis on utilise ci-dessous res.json()
-      .then(res => res.text());
+    );
+    // dans la partie back(API): il retourne json et puis on utilise ci-dessous res.json()
+    // .then(res => res.text());
   }
 
   render() {
