@@ -29,6 +29,7 @@ class AfficheFilm extends Component {
                   imageUrl={item.image_url}
                   url={item.url}
                   videoUrl={item.video_url}
+                  key={item.name}
                 />
               ))
             }

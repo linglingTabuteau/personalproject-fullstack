@@ -33,8 +33,8 @@ class SignIn extends Component {
   }
 
   handleSubmit(e) {
-    const { signinAuth, history } = this.props;
     e.preventDefault();
+    const { signinAuth, history } = this.props;
     const config = {
       method: 'POST',
       headers: new Headers({
@@ -44,13 +44,16 @@ class SignIn extends Component {
     };
     fetch('http://localhost:5000/api/signin', config)
       .then((res) => {
+        console.log('status', res.status);
         if (res.status === 400) {
-          console.log('res.statusText', res.statusText);
+          alert('wrong password or wrong email address');
+          history.replace('/signup');
         } if (res.status === 200) {
           return res.json();
         }
       })
       .then((res) => {
+        console.log('profile-res', res);
         signinAuth(res.user, res.token);
         history.replace('/myprofile');
       });

@@ -74,12 +74,13 @@ router.post('/auth/signup', (req, res) => {
 // route signin JWT (Json Web Token) 
 router.post('/signin', function (req, res) {
   const authenticate = passport.authenticate('local', (err, user, info) => {
+    console.log("user:", user)
     const token = jwt.sign(JSON.stringify(user), 'your_jwt_secret');
     if (err) {
       return res.sendStatus(500);
     } if (!user) {
-      console.log('erre400', res);
-      return res.sendStatus(400);
+      console.log('message400', info.message);
+      return res.status(400).json({ messsage: info.message });
     }
     return res.json({ user, token });
   })
@@ -88,7 +89,6 @@ router.post('/signin', function (req, res) {
 });
 
 //Attention: différentier la route du back "/profile" et le path du front"/myprofile" 
-//??? On vérifie les droits d'accès pour chacune des routes qui en ont besoin Pour faire un test, t
 router.get("/profile", passport.authenticate('jwt', { session: false }), function (req, res) {
   res.send(req.user);
 })

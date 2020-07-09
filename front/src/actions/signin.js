@@ -11,8 +11,7 @@ export const autoLoginAuth = (user, token) => ({
 });
 
 export const logout = () => {
-  console.log('Backsignonok');
   return {
     type: 'SIGNOUT',
-  }
+  };
 };

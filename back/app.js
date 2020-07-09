@@ -40,7 +40,7 @@ app.use('/api', indexRouter);
 // configurer passport en lui passant la strategy qui prend deux arguments config&callback qui prend 3 arguments(email, password, callback)
 passport.use(new LocalStrategy(
   {
-    // Attention: 'email' et 'password' les deux noms doivent etre identiques que les noms sur front
+    // Attention: 'email' et 'password' les deux noms doivent etre identiques que les noms de front
     usernameField: 'email',
     passwordField: 'password',
     session: false
@@ -54,11 +54,11 @@ passport.use(new LocalStrategy(
       }
       const user = results[0];
       if (!user) {
-        return callback(null, false);
+        return callback(null, false, { message: 'Incorrect email ' });
       }
       const authPassword = bcrypt.compareSync(password, user.password);
       if (!authPassword) {
-        return callback(null, false);
+        return callback(null, false, { message: 'Incorrect password ' });
       }
       return callback(null, user);
     });

@@ -81,7 +81,7 @@ class CarouselPhoto extends Component {
           className="center-image"
         >
           {/* <Row> */}
-            <img src={item.src} alt={item.altText} />
+          <img src={item.src} alt={item.altText} />
           {/* </Row> */}
           <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
         </CarouselItem>
