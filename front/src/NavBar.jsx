@@ -33,6 +33,7 @@ class NavBar extends React.Component {
   componentDidMount() {
     // nouveautée ES6 Map [[key, value], [key, value]] pour récupérer les cookies
     // split('; ') pour séparer deux cookie car les cookies sont séparé par '; '
+
     const cookies = new Map(document.cookie.split('; ').map(e => e.split('=')));
     const token = cookies.get('token');
     const { autoLoginAuth } = this.props;

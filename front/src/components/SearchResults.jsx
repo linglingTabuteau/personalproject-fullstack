@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import CardFilm from './CardFilm';
 import { dataResults } from '../actions/search';
-import { initState } from '../actions/index';
+import initState from '../actions/index';
 import './SearchResults.scss';
 
 class SearchResults extends Component {

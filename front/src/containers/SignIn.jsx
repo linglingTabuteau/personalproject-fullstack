@@ -48,14 +48,11 @@ class SignIn extends Component {
         if (res.status === 400) {
           alert('wrong password or wrong email address');
           history.replace('/signup');
-        } if (res.status === 200) {
-          return res.json();
+        } else if (res.status === 200) {
+          const resJson = res.json();
+          signinAuth(resJson.user, resJson.token);
+          history.replace('/myprofile');
         }
-      })
-      .then((res) => {
-        console.log('profile-res', res);
-        signinAuth(res.user, res.token);
-        history.replace('/myprofile');
       });
   }
 

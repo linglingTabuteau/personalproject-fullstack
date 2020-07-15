@@ -22,23 +22,6 @@ class Admin extends Component {
         </Row>
         <div className="cards">
           <AfficheFilm />
-          {/* <Row className="center-card">
-            {
-              listFilms.results.map(item => (
-                <Card className="CardFilm">
-                  <Col className="photo-size">
-                    <CardImg top width="100%" src={imageUrl} alt="Card image cap" />
-                  </Col>
-                  <CardBody>
-                    <CardTitle>{name}</CardTitle>
-                    <CardText>{onTheater}</CardText>
-                    <Button tag={Link} to="/admin/modifyfilm">Modify one Film</Button>
-                    <Button tag={Link} to="/admin/addfilm">Delete one Film</Button>
-                  </CardBody>
-                </Card>
-              ))
-            }
-          </Row> */}
         </div>
       </Container>
     );

@@ -1,3 +1,3 @@
-export const initState = () => ({
-  type: 'INIT_STATE',
-});
+export default function initState() {
+  return { type: 'INIT_STATE' };
+}

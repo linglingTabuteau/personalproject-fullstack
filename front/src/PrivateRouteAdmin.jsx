@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Route,
-  withRouter,
   Redirect,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -11,7 +10,8 @@ const PrivateRouteAdmin = ({
 }) => (
   <Route
     {...rest}
-// attention: after arrow function, we use {several ligns of instructions} so we need return inside{} else without {} we can avoid return just () is enoght
+// attention: after arrow function, we use {several ligns of instructions}
+// so we need return inside{} else without {} we can avoid return just () is enoght
     render={(props) => {
       console.log('1privateRoute-props:', props);
       console.log('2privateRoute-...rest:', { ...rest });

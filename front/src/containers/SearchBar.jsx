@@ -25,6 +25,7 @@ class SearchBar extends Component {
     const { history } = this.props;
     console.log('history', history);
     const query = queryString.stringify(this.state);
+    console.log('query:', query);
     history.push(`/result?${query}`);
   }
 

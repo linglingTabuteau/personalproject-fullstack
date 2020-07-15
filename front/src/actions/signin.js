@@ -10,8 +10,6 @@ export const autoLoginAuth = (user, token) => ({
   token,
 });
 
-export const logout = () => {
-  return {
-    type: 'SIGNOUT',
-  };
-};
+export const logout = () => ({
+  type: 'SIGNOUT',
+});
