@@ -32,6 +32,7 @@ class SignUp extends Component {
   }
 
   handleSubmit(e) {
+    const { history } = this.props;
     e.preventDefault();
     fetch(
       'http://localhost:5000/api/auth/signup',
@@ -44,7 +45,15 @@ class SignUp extends Component {
         // JSON.stringify(form json);
         body: JSON.stringify(this.state),
       },
-    );
+    )
+      .then((res) => {
+        console.log('resSignup:', res);
+        if (res.status === 200) {
+          alert('Succeed to create an account, you can sign in');
+          history.push('/signin');
+        }
+      });
+
     // dans la partie back(API): il retourne json et puis on utilise ci-dessous res.json()
     // .then(res => res.text());
   }
